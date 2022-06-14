@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/userListFragment">
+
+    <fragment
+        android:id="@+id/userListFragment"
+        android:name="com.ua.githubclient.ui.github_repos.GithubReposFragment"
+        android:label="UserListFragment"
+        tools:layout="@layout/repos_list_fragment"
+        >
+        <action
+            android:id="@+id/action_userListFragment_to_commitsFragment"
+            app:destination="@id/commitsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commitsFragment"
+        android:name="com.ua.githubclient.ui.repos_commits.CommitsFragment"
+        android:label="CommitsFragment"
+        tools:layout="@layout/commits_list_fragment"
+        >
+        <argument
+            android:name="userName"
+            app:argType="string" />
+        <argument
+            android:name="reposName"
+            app:argType="string" />
+    </fragment>
+</navigation>
